@@ -34,7 +34,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='bottom-of-home-button'>
-            <button class='grocery-list-button'>Get grocery list!</button>
+            <button className='grocery-list-button'>Get grocery list!</button>
           </div>
         </div>
       </div>
