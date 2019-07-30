@@ -30,7 +30,7 @@ export default class Data extends Component {
                 data: responseJson.results, 
                 isLoading: false 
             }
-        );
+        )
         console.log(responseJson)
     })
     }
@@ -46,10 +46,3 @@ export default class Data extends Component {
         );
     }
 }
-
-
-
-
-
-
-
