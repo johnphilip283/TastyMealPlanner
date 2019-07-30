@@ -7,15 +7,12 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        GroceryListData: []
+      GroceryListData: []
     }
   }
 
-  renderCard(day) {
-    return <DayOfWeekCard value={day} />;
-  }
-
   render() {
+    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
       <div className='home-container'>
         <div className='home-header'>
@@ -24,13 +21,7 @@ export default class Home extends Component {
         <div className='home-content'>
           <div className='home-planner-cards'>
             <div className='planner-card'>
-              {this.renderCard('Monday')}
-              {this.renderCard('Tuesday')}
-              {this.renderCard('Wednesday')}
-              {this.renderCard('Thursday')}
-              {this.renderCard('Friday')}
-              {this.renderCard('Saturday')}
-              {this.renderCard('Sunday')}
+              {dayNames.map(value => <DayOfWeekCard value={value} />)}
             </div>
           </div>
           <div className='grocery-list-button-container'>
