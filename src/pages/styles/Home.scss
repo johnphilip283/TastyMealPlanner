@@ -1,0 +1,29 @@
+.planner-card {
+    margin-top: 40px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex: 1 1 0;
+}
+
+.bottom-of-home-button {
+    text-align: center;
+}
+
+.grocery-list-button {
+    background-color: #18c1ee;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 40px;
+    display: inline-block;
+}
+
+.grocery-list-button:hover {
+    background-color: white;
+    color: #18c1ee;
+    border: 3px solid #18c1ee;
+    padding: 5px;
+}
