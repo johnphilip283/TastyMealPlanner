@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import './styles/DayOfWeekCard.scss';
 
 export default class DayOfWeekCard extends Component {
@@ -10,25 +11,41 @@ export default class DayOfWeekCard extends Component {
       dinner: null
     };
   }
+
   render() {
     return (
-      <div className='card'>
-        <div className='DayOfWeek'>
+      <div className='day-of-week-card'>
+        <div className='day-of-week'>
           {this.props.value}
         </div>
-        <div className='breakfast'>
+        <div className='breakfast-container'>
           <div className='label'>
             <p>Breakfast</p>
+            <div className='add-food-button-container'>
+              <Link to={`/${this.props.value}`}>
+                <button className='add-food-button'>Add food</button>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className='lunch'>
+        <div className='lunch-container'>
           <div className='label'>
             <p>Lunch</p>
+            <div className='add-food-button-container'>
+              <Link to={`/${this.props.value}`}>
+                <button className='add-food-button'>Add food</button>
+              </Link>
+            </div>
           </div>
         </div>
-        <div className='dinner'>
+        <div className='dinner-container'>
           <div className='label'>
             <p>Dinner</p>
+            <div className='add-food-button-container'>
+              <Link to={`/${this.props.value}`}>
+                <button className='add-food-button'>Add food</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

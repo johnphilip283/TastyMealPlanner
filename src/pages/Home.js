@@ -30,10 +30,10 @@ export default class Home extends Component {
               {this.renderCard('Thursday')}
               {this.renderCard('Friday')}
               {this.renderCard('Saturday')}
-              {this.renderCard('Tuesday')}
+              {this.renderCard('Sunday')}
             </div>
           </div>
-          <div className='bottom-of-home-button'>
+          <div className='grocery-list-button-container'>
             <button className='grocery-list-button'>Get grocery list!</button>
           </div>
         </div>
