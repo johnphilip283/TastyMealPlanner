@@ -1,0 +1,16 @@
+.headerImageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #18c1ee;
+}
+.headerImageContainer img {
+    width: 300px;
+    height: 100px;
+    padding: 20px;
+}
+
+.headerText {
+    font-size: 25px;
+    color: white;
+}
