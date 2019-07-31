@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './pages/Home'
 import FullDayOfWeek from "./components/FullDayOfWeek";
+import HomeHeaderBar from "./components/HomeHeaderBar";
 
 export default class App extends Component {
 
-  async componentDidMount() {
-
+  constructor(props) {
+    super(props);
     this.state = {
       monday: {},
       tuesday: {},
@@ -16,10 +17,12 @@ export default class App extends Component {
       saturday: {},
       sunday: {}
     };
+  }
 
-    const response = await fetch('http://localhost:5000/api/tags');
-    const res = await response.json();
-    console.log(JSON.parse(res.text));
+  async componentDidMount() {
+    // const response = await fetch('http://localhost:5000/api/recipes');
+    // const res = await response.json();
+    // console.log(JSON.parse(res.text));
   }
 
   onDayOfWeekChange = day => dayChange => {
@@ -28,14 +31,19 @@ export default class App extends Component {
     })
   };
 
+  fullWeekRenderer = props => <FullDayOfWeek {...props} onDayOfWeekChange={this.onDayOfWeekChange(props.match.params.value)}/>;
+
   render() {
     return (
-      <div className="App">
+      <>
+        <div className='home-header'>
+          <HomeHeaderBar/>
+        </div>
         <Router>
-          <Route path="/home" component={Home}/>
-          <Route path='/day/:value' render={(props) => <FullDayOfWeek onDayOfWeekChange={this.onDayOfWeekChange}/>}/>
+          <Route exact path="/" component={Home}/>
+          <Route path='/day/:value' render={this.fullWeekRenderer}/>
         </Router>
-      </div>
+      </>
     );
   }
 
