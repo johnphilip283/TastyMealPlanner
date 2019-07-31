@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import HomeHeaderBar from '../components/HomeHeaderBar';
 import DayOfWeekCard from '../components/DayOfWeekCard';
 import './styles/Home.scss';
 
@@ -17,9 +16,6 @@ export default class Home extends Component {
 
     return (
       <div className='home-container'>
-        <div className='home-header'>
-          <HomeHeaderBar/>
-        </div>
         <div className='home-content'>
           <div className='home-planner-cards'>
             <div className='planner-card'>

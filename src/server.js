@@ -6,9 +6,9 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.get('/api/tags', async (req, res) => {
+app.get('/recipes', async (req, res) => {
 
-  const response = await request.get('https://api.tasty.co/search/tags')
+  const response = await request.get('https://api.tasty.co/search/recipes')
   .set({
     'X-AUTH-TOKEN': config.config,
     'X-Tasty-User-Access-Token': config.config,
@@ -17,6 +17,7 @@ app.get('/api/tags', async (req, res) => {
     "Fastly": 1
   });
   res.send(response);
+
 });
 
 
