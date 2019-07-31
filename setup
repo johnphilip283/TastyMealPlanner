@@ -4,5 +4,4 @@ echo 'Starting app...'
 cd ~/Desktop/tasty_meal_planner/src
 
 npm install
-nodemon server.js &
-npm start &
+nodemon server.js && npm start
