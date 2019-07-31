@@ -10,7 +10,7 @@ export default class MealCard extends Component {
         <div className='label'>
           <p>{this.props.name}</p>
           <div className='add-food-button-container'>
-            <Link to={`/${this.props.day.toLowerCase()}#${this.props.name.toLowerCase()}`}>
+            <Link to={`/day/${this.props.day.toLowerCase()}#${this.props.name.toLowerCase()}`}>
               <button>Add food</button>
             </Link>
           </div>

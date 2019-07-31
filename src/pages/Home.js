@@ -12,7 +12,9 @@ export default class Home extends Component {
   }
 
   render() {
-    const dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
     return (
       <div className='home-container'>
         <div className='home-header'>
@@ -21,7 +23,9 @@ export default class Home extends Component {
         <div className='home-content'>
           <div className='home-planner-cards'>
             <div className='planner-card'>
-              {dayNames.map(value => <DayOfWeekCard value={value} />)}
+              {
+                days.map(day => <DayOfWeekCard value={day}/>)
+              }
             </div>
           </div>
           <div className='grocery-list-button-container'>
