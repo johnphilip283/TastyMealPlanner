@@ -14,9 +14,12 @@ export default class FullDayOfWeek extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch('http://localhost:5000/recipes');
-    const res = await response.json();
-    console.log(JSON.parse(res.text));
+    const response = await fetch('http://localhost:5000/api/video', {
+      headers: {
+        recipe_name: 'Lasagna Poppers'
+      }
+    });
+    console.log(await response.json())
   }
 
   onMealChange = meal => mealChange => {
