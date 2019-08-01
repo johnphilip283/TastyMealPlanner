@@ -1,0 +1,9 @@
+.ingredients {
+    display: flex;
+    flex-direction: column;
+}
+
+.visuallyhidden, .ingredient-list-title {
+    color: black;
+    font-weight: bold;
+}

@@ -8,19 +8,11 @@ export default class FullDayOfWeek extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      caloriesRemaining: 2000,
       breakfast: [],
       lunch: [],
       dinner: []
     }
-  }
-
-  async componentDidMount() {
-    const response = await fetch('http://localhost:5000/api/video', {
-      headers: {
-        recipe_name: 'Lasagna Poppers'
-      }
-    });
-    console.log(await response.json())
   }
 
   onMealChange = meal => mealChange => {
@@ -36,7 +28,10 @@ export default class FullDayOfWeek extends Component {
   render() {
     return (
       <div className='full-day-of-week-container'>
-        <h1>{this.props.match.params.value.toUpperCase()}</h1>
+        <div className='full-day-of-week-top-row'>
+          <h1>{this.props.match.params.value.toUpperCase()}</h1>
+          <h1>Calories Remaining: {this.state.caloriesRemaining}</h1>
+        </div>
         <FullMeal mealName='Breakfast' onMealChange={this.onMealChange('breakfast')}/>
         <FullMeal mealName='Lunch' onMealChange={this.onMealChange('lunch')}/>
         <FullMeal mealName='Dinner' onMealChange={this.onMealChange('dinner')}/>

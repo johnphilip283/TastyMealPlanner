@@ -16,3 +16,13 @@
     border: 2px solid #18c1ee;
     padding: 3px;
 }
+
+.full-day-of-week-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h1 {
+    color: #18c1ee;
+}
