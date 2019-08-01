@@ -1,3 +1,18 @@
 .full-day-of-week-container {
     margin-left: 100px;
 }
+
+.submit-day-button-container {
+    margin-top: 40px;
+}
+
+.submit-day-button {
+    font-size: 20px;
+    padding: 5px;
+    background-color: white;
+}
+
+.submit-day-button:hover {
+    border: 2px solid #18c1ee;
+    padding: 3px;
+}

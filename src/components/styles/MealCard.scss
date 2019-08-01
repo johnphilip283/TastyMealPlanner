@@ -16,11 +16,16 @@
   text-align: center;
 }
 
-button {
+.meal-card-button {
   text-align: center;
   font-size: 15px;
   display: inline-block;
-  padding: 0px;
+  padding: 2px;
+}
+
+.meal-card-button:hover {
+  border: 1px solid #18c1ee;
+  padding: 1px;
 }
 
 .meal-card-food {

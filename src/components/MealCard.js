@@ -14,7 +14,7 @@ export default class MealCard extends Component {
           </div>
           <div className='add-food-button-container'>
             <Link to={`/day/${this.props.day.toLowerCase()}#${this.props.name.toLowerCase()}`}>
-              <button>Add food</button>
+              <button className='meal-card-button'>Add food</button>
             </Link>
           </div>
         </div>

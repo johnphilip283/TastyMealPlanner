@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FullMeal from "./FullMeal";
 import { Link } from "react-router-dom";
+import './styles/FullDayOfWeek.scss';
 
 export default class FullDayOfWeek extends Component {
 
@@ -26,11 +27,9 @@ export default class FullDayOfWeek extends Component {
     this.setState({
       [meal]: mealChange
     })
-    // console.log(this.state);
   };
 
   submitChangesToHome = () => {
-    // console.log(this.state);
     this.props.onDayOfWeekChange({ ...this.state });
   };
 
@@ -44,9 +43,9 @@ export default class FullDayOfWeek extends Component {
       {/*
       ~~ Do cool stuff ~~
       */}
-        <div>
+        <div className='submit-day-button-container'>
           <Link to={`/home`}>
-            <button type='button' onClick={this.submitChangesToHome}>Submit day!</button>
+            <button type='button' className='submit-day-button' onClick={this.submitChangesToHome}>Submit day!</button>
           </Link>
         </div>
       </div>
