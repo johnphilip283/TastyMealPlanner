@@ -10,9 +10,9 @@ export default class DayOfWeekCard extends Component {
         <div className='day-of-week'>
           {this.props.value}
         </div>
-        <MealCard name='Breakfast' day={this.props.value}/>
-        <MealCard name='Lunch' day={this.props.value}/>
-        <MealCard name='Dinner' day={this.props.value}/>
+        <MealCard name='Breakfast' day={this.props.value} food={this.props.mealInfo.breakfast}/>
+        <MealCard name='Lunch' day={this.props.value} food={this.props.mealInfo.lunch}/>
+        <MealCard name='Dinner' day={this.props.value} food={this.props.mealInfo.dinner}/>
       </div>
     );
   }

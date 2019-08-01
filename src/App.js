@@ -9,14 +9,14 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      monday: {},
-      tuesday: {},
-      wednesday: {},
-      thursday: {},
-      friday: {},
-      saturday: {},
-      sunday: {}
-    };
+      monday: [],
+      tuesday: [],
+      wednesday: [],
+      thursday: [],
+      friday: [],
+      saturday: [],
+      sunday: [],
+    }
   }
 
   async componentDidMount() {
@@ -32,7 +32,7 @@ export default class App extends Component {
   };
 
   fullWeekRenderer = props => <FullDayOfWeek {...props} onDayOfWeekChange={this.onDayOfWeekChange(props.match.params.value)}/>;
-
+  
   render() {
     return (
       <>
@@ -40,7 +40,8 @@ export default class App extends Component {
           <HomeHeaderBar/>
         </div>
         <Router>
-          <Route exact path="/" component={Home}/>
+          <Route exact path='/' render={(props) => <Home fullWeekInfo={this.state} {...props}/>}/>
+          <Route path='/home' render={(props) => <Home fullWeekInfo={this.state} {...props}/>}/>
           <Route path='/day/:value' render={this.fullWeekRenderer}/>
         </Router>
       </>

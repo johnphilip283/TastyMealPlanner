@@ -15,6 +15,7 @@ export default class FullMeal extends Component {
     this.setState({
       mealContent: event.target.value
     })
+    // console.log(this.state);
   };
 
   render() {

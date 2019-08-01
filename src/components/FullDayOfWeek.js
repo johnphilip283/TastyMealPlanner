@@ -26,15 +26,17 @@ export default class FullDayOfWeek extends Component {
     this.setState({
       [meal]: mealChange
     })
+    // console.log(this.state);
   };
 
   submitChangesToHome = () => {
+    // console.log(this.state);
     this.props.onDayOfWeekChange({ ...this.state });
   };
 
   render() {
     return (
-      <>
+      <div className='full-day-of-week-container'>
         <h1>{this.props.match.params.value.toUpperCase()}</h1>
         <FullMeal mealName='Breakfast' onMealChange={this.onMealChange('breakfast')}/>
         <FullMeal mealName='Lunch' onMealChange={this.onMealChange('lunch')}/>
@@ -42,11 +44,12 @@ export default class FullDayOfWeek extends Component {
       {/*
       ~~ Do cool stuff ~~
       */}
-        <Link to={`/home`}>
-          <button type='button' onClick={this.submitChangesToHome}>Submit day!</button>
-        </Link>
-      </>
+        <div>
+          <Link to={`/home`}>
+            <button type='button' onClick={this.submitChangesToHome}>Submit day!</button>
+          </Link>
+        </div>
+      </div>
     );
   }
-
 }
