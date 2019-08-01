@@ -1,9 +1,9 @@
-.ingredients {
+.ingredients-and-nutrition {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.visuallyhidden, .ingredient-list-title {
+.visuallyhidden, .ingredient-list-title, .nutrition-title {
     color: black;
     font-weight: bold;
 }
