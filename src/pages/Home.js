@@ -16,7 +16,7 @@ export default class Home extends Component {
           <div className='home-planner-cards'>
             <div className='planner-card'>
               {
-                days.map(day => <DayOfWeekCard value={day} mealInfo={this.props.fullWeekInfo[day.toLowerCase()]}/>)
+                days.map(day => <DayOfWeekCard value={day} mealInfo={this.props.fullWeekInfo[day.toLowerCase()][0]}/>)
               }
             </div>
           </div>
