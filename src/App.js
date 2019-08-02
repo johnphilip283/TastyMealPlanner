@@ -9,14 +9,105 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      monday: {},
-      tuesday: {},
-      wednesday: {},
-      thursday: {},
-      friday: {},
-      saturday: {},
-      sunday: {}
-    };
+      monday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      tuesday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      wednesday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      thursday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      friday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      saturday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }],
+      sunday: [{
+        breakfast: {
+          name: "",
+          ingredients: [],
+        },
+        lunch: {
+          name: "",
+          ingredients: [],
+        },
+        dinner: {
+          name: "",
+          ingredients: [],
+        }
+      }]
+    }
   }
 
   async componentDidMount() {
@@ -26,13 +117,17 @@ export default class App extends Component {
   }
 
   onDayOfWeekChange = day => dayChange => {
-    this.setState({
-      [day]: dayChange
-    })
+    const someDay = this.state[day][0];
+    console.log(someDay);
+    for (const [mealType, obj] of Object.entries(someDay)) {
+      for (const mealInfo of Object.keys(obj)){
+        someDay[mealType][mealInfo] = dayChange[mealType][mealInfo]
+      }
+    }    
   };
 
   fullWeekRenderer = props => <FullDayOfWeek {...props} onDayOfWeekChange={this.onDayOfWeekChange(props.match.params.value)}/>;
-
+  
   render() {
     return (
       <>
@@ -40,11 +135,11 @@ export default class App extends Component {
           <HomeHeaderBar/>
         </div>
         <Router>
-          <Route exact path="/" component={Home}/>
+          <Route exact path='/' render={(props) => <Home fullWeekInfo={this.state} {...props}/>}/>
+          <Route path='/home' render={(props) => <Home fullWeekInfo={this.state} {...props}/>}/>
           <Route path='/day/:value' render={this.fullWeekRenderer}/>
         </Router>
       </>
     );
   }
-
 }

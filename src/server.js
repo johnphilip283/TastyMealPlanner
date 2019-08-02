@@ -20,7 +20,7 @@ app.get('/api/ingredients/text', async (req, res) => {
   const resp = JSON.parse(response.text)
   const ingredient_list = []
   const components = resp.results[0].sections[0].components
-  for (var i = 0, len = components.length; i < len; ++i) {
+  for (let i = 0, len = components.length; i < len; i++) {
     const ingredient_info = components[i].raw_text
     if (ingredient_info !== 'n/a') {
       ingredient_list.push(ingredient_info)
