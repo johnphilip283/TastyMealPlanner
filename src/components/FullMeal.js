@@ -6,8 +6,8 @@ export default class FullMeal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
-      meal: [],
+      prev_calories: 0,
+      meal: null,
       ingredients: [],
       nutrition: []
     }
@@ -40,20 +40,36 @@ export default class FullMeal extends Component {
 
   handleEnterFood = event => {
     if (event.keyCode === 13) {
-      this.getIngredients(event.target.value)
-        .then(returnedInfo => this.setState({
-          ingredients: returnedInfo
-        }));
-      
-      this.getNutritionInfo(event.target.value)
-      .then(returnedInfo => this.setState({
-        nutrition: returnedInfo
-      }));
+      if (event.target.value === "") {
+        this.setState({
+          ingredients: []
+        })
+        this.setState({
+          nutrition: []
+        })
+        this.props.onMealEnterUpdateCal(0);
+      } else {
+        this.getIngredients(event.target.value)
+          .then(returnedInfo => {
+            this.props.onMealEnterUpdateIng(returnedInfo);
+            this.setState({
+              ingredients: returnedInfo
+            })
+          });
+
+        this.getNutritionInfo(event.target.value)
+          .then(returnedInfo => {
+            this.props.onMealEnterUpdateCal(returnedInfo.calories);
+            this.setState({
+              prev_calories: returnedInfo.calories,
+              nutrition: returnedInfo
+            })
+          });
+      }
     }
  }
 
   render() {
-    console.log(this.state);
     return (
       <>
         <h1>{this.props.mealName}</h1>

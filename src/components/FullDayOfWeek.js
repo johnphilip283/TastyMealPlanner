@@ -9,16 +9,58 @@ export default class FullDayOfWeek extends Component {
     super(props);
     this.state = {
       caloriesRemaining: 2000,
-      breakfast: [],
-      lunch: [],
-      dinner: []
+      breakfast: {
+        name: "",
+        ingredients: [],
+        prev_calories: 0
+      },
+      lunch: {
+        name: "",
+        ingredients: [],
+        prev_calories: 0
+      },
+      dinner: {
+        name: "",
+        ingredients: [],
+        prev_calories: 0
+      }
     }
   }
 
   onMealChange = meal => mealChange => {
+    const someMeal = this.state[meal];
+    someMeal.name = mealChange
     this.setState({
-      [meal]: mealChange
+      meal: someMeal
     })
+  };
+
+  onMealEnterUpdateIng = meal => ingredients => {
+    const someMeal = this.state[meal];
+    if (this.state[meal].name === "") {
+      someMeal.ingredients = []
+    } else {
+      someMeal.ingredients = ingredients
+    }
+    this.setState({
+      meal: someMeal
+    })
+  };
+
+  onMealEnterUpdateCal = meal => calories => {
+    const someMeal = this.state[meal];
+    const current_calories = this.state.caloriesRemaining;
+    if (this.state[meal].name === "") {
+      this.setState({
+        caloriesRemaining: current_calories + someMeal.prev_calories
+      })
+    } else {
+      someMeal.prev_calories = calories
+      this.setState({
+        caloriesRemaining: current_calories - calories,
+        meal: someMeal
+      })
+    }
   };
 
   submitChangesToHome = () => {
@@ -32,9 +74,21 @@ export default class FullDayOfWeek extends Component {
           <h1>{this.props.match.params.value.toUpperCase()}</h1>
           <h1>Calories Remaining: {this.state.caloriesRemaining}</h1>
         </div>
-        <FullMeal mealName='Breakfast' onMealChange={this.onMealChange('breakfast')}/>
-        <FullMeal mealName='Lunch' onMealChange={this.onMealChange('lunch')}/>
-        <FullMeal mealName='Dinner' onMealChange={this.onMealChange('dinner')}/>
+        <FullMeal mealName='Breakfast' 
+          onMealChange={this.onMealChange('breakfast')} 
+          onMealEnterUpdateIng={this.onMealEnterUpdateIng('breakfast')}
+          onMealEnterUpdateCal={this.onMealEnterUpdateCal('breakfast')}
+        />
+        <FullMeal mealName='Lunch' 
+          onMealChange={this.onMealChange('lunch')} 
+          onMealEnterUpdateIng={this.onMealEnterUpdateIng('lunch')}
+          onMealEnterUpdateCal={this.onMealEnterUpdateCal('lunch')}
+        />
+        <FullMeal mealName='Dinner' 
+          onMealChange={this.onMealChange('dinner')} 
+          onMealEnterUpdateIng={this.onMealEnterUpdateIng('dinner')}
+          onMealEnterUpdateCal={this.onMealEnterUpdateCal('dinner')}
+        />
       {/*
       ~~ Do cool stuff ~~
       */}
