@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import DayOfWeekCard from '../components/DayOfWeekCard';
 import './styles/Home.scss';
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PdfDocument } from "./GroceryList";
 
 export default class Home extends Component {
   constructor(props) {
@@ -9,6 +11,7 @@ export default class Home extends Component {
   }
 
   render() {
+    console.log(this.props.fullWeekInfo);
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return (
       <div className='home-container'>
@@ -21,7 +24,13 @@ export default class Home extends Component {
             </div>
           </div>
           <div className='grocery-list-button-container'>
-            <button className='grocery-list-button'>Get grocery list!</button>
+            <PDFDownloadLink
+              document={<PdfDocument data={this.props.fullWeekInfo} />}
+              fileName="grocerylist.pdf"
+              className="grocery-list-button"
+            >
+              Get grocery list!
+            </PDFDownloadLink>
           </div>
         </div>
       </div>
