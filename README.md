@@ -1,9 +1,9 @@
 This meal planner app uses recipes from https://tasty.co/ and was built during BuzzFeed's annual Hack Week! 
 
-By using an Express server, the React app fetches recipe and nutrition information from the Tasty Public API. This allows users to search for Tasty recipes and get an overview of their meals for the week.
+Using an Express server, the React app fetches recipe and nutrition information from the Tasty Public API. Users can search for Tasty recipes through this separate app/site and get an overview of their meals for the week.
 ![](tasty_meal_planner_gif1.gif)
 
-In order to help with planning, the app will keep track of the recipes that was entered for each meal for each day. Once planning is complete, the user can download a grocery list that compiles all of the necessary ingredients.
+In order to help with planning, the app will keep track of the recipe entered for each meal for each day. Once planning is complete, the app will compile a grocery list of all necessary ingredients, which the user can then download.
 ![](tasty_meal_planner_gif2.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
